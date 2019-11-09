@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `gastos`
+-- Base de datos: `operacions`
 --
 
 -- --------------------------------------------------------
@@ -50,7 +50,7 @@ CREATE TABLE `configuraciones` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `gastos`
+-- Estructura de tabla para la tabla `operacions`
 --
 
 CREATE TABLE `gastos` (
@@ -138,7 +138,7 @@ ALTER TABLE `configuraciones`
   ADD PRIMARY KEY (`codConfiguracion`);
 
 --
--- Indices de la tabla `gastos`
+-- Indices de la tabla `operacions`
 --
 ALTER TABLE `gastos`
   ADD PRIMARY KEY (`codGasto`);
@@ -188,7 +188,7 @@ ALTER TABLE `configuraciones`
   MODIFY `codConfiguracion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `gastos`
+-- AUTO_INCREMENT de la tabla `operacions`
 --
 ALTER TABLE `gastos`
   MODIFY `codGasto` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
