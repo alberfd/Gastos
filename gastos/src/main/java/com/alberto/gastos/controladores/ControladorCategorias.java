@@ -1,10 +1,12 @@
 package com.alberto.gastos.controladores;
 
+import com.alberto.gastos.dtos.CategoriaDTO;
 import com.alberto.gastos.entidades.Categoria;
 import com.alberto.gastos.servicios.ServicioCategorias;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -15,7 +17,9 @@ public class ControladorCategorias {
     private ServicioCategorias servicioCategorias;
 
     @GetMapping
-    public List<Categoria> getAllCategories(){
+    public List<CategoriaDTO> getAllCategories(){
+
+
         return servicioCategorias.getAllCategories();
     }
 

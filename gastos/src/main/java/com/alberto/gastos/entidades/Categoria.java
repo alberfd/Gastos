@@ -22,13 +22,17 @@ public class Categoria {
 
     private String txtNombre;
 
-    @ManyToMany(mappedBy = "categorias")
+    @OneToMany(mappedBy = "categoria")
     @JsonIgnore
     private List<Operacion> operacions;
 
-    @ManyToMany(mappedBy = "categorias")
+    @OneToMany(mappedBy = "categoria")
     @JsonIgnore
-    private List<GastoFijo> gastosFijos;
+    private List<OperacionFija> gastosFijos;
+
+    @OneToOne
+    @JoinColumn(name = "codPadre")
+    private Categoria categoria;
 
 
 

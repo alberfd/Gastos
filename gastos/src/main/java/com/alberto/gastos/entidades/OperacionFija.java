@@ -14,12 +14,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "gastos_fijos")
-public class GastoFijo {
+@Table(name = "operacionesfijas")
+public class OperacionFija {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long codGastoFijo;
+    private long codOperacionFija;
 
     private String txtConcepto;
 
@@ -27,10 +27,7 @@ public class GastoFijo {
 
     private float numCantidad;
 
-    @ManyToMany
-    @JoinTable(
-            name = "gastos_fijos_categorias",
-            joinColumns = @JoinColumn(name = "codGastoFijo"),
-            inverseJoinColumns = @JoinColumn(name = "codCategoria"))
-    private List<Categoria> categorias;
+    @ManyToOne
+    @JoinColumn(name = "codCategoria")
+    private Categoria categoria;
 }

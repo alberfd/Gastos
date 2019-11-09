@@ -14,12 +14,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "gastos")
+@Table(name = "operaciones")
 public class Operacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long codGasto;
+    private long codOperacion;
 
     private String txtConcepto;
 
@@ -31,12 +31,9 @@ public class Operacion {
 
     private LocalDateTime datFecha;
 
-    @ManyToMany
-    @JoinTable(
-            name = "gastos_categorias",
-            joinColumns = @JoinColumn(name = "codGasto"),
-            inverseJoinColumns = @JoinColumn(name = "codCategoria"))
-    private List<Categoria> categorias;
+    @ManyToOne
+    @JoinColumn(name = "codCategoria")
+    private Categoria categoria;
 
 
 

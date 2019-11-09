@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface OperacionJpaRepository extends JpaRepository<Operacion, Long> {
 
-    @Query(value = "SELECT * FROM GASTOS " +
+    @Query(value = "SELECT * FROM OPERACIONES " +
             "WHERE MONTH(DATFECHA) = :month AND YEAR(DATFECHA) = :year",
     nativeQuery = true)
     List<Operacion> getAllByMonth(@Param("month") int month, @Param("year") int year);

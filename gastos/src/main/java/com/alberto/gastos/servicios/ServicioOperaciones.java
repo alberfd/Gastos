@@ -1,26 +1,24 @@
 package com.alberto.gastos.servicios;
 
 import com.alberto.gastos.entidades.Operacion;
-import com.alberto.gastos.entidades.GastoFijo;
+import com.alberto.gastos.entidades.OperacionFija;
 import com.alberto.gastos.entidades.TipoGasto;
 import com.alberto.gastos.repositorios.OperacionJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ServicioGastos {
+public class ServicioOperaciones {
 
     @Autowired
     private OperacionJpaRepository operacionJpaRepository;
 
     @Autowired
-    private ServicioGastosFijos servicioGastosFijos;
+    private ServicioOperacionesFijas servicioOperacionesFijas;
 
 
     public List<Operacion> getAllByMonth(int month, int year){
@@ -37,17 +35,17 @@ public class ServicioGastos {
     }
 
     @Transactional
-    public Operacion addOperacionByGastoFijoId(long codGastoFijo){
-        GastoFijo gastoFijo = servicioGastosFijos.getById(codGastoFijo);
+    public Operacion addOperacionByOperacionFijaId(long codOperacionFija){
+        OperacionFija operacionFija = servicioOperacionesFijas.getById(codOperacionFija);
 
         Operacion nuevaOperacion = new Operacion();
 
-        nuevaOperacion.setTxtConcepto(gastoFijo.getTxtConcepto());
-        nuevaOperacion.setTxtNota(gastoFijo.getTxtNota());
-        nuevaOperacion.setNumCantidad(gastoFijo.getNumCantidad());
+        nuevaOperacion.setTxtConcepto(operacionFija.getTxtConcepto());
+        nuevaOperacion.setTxtNota(operacionFija.getTxtNota());
+        nuevaOperacion.setNumCantidad(operacionFija.getNumCantidad());
         nuevaOperacion.setIndTipo(TipoGasto.FIJO.getCode());
         nuevaOperacion.setDatFecha(LocalDateTime.now());
-        nuevaOperacion.setCategorias(new ArrayList<>(gastoFijo.getCategorias()));
+        nuevaOperacion.setCategoria(operacionFija.getCategoria());
 
         return operacionJpaRepository.save(nuevaOperacion);
     }
