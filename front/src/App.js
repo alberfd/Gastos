@@ -17,7 +17,7 @@ import {ChartsDemo} from './components/ChartsDemo';
 import {MiscDemo} from './components/MiscDemo';
 import {EmptyPage} from './components/EmptyPage';
 import {Documentation} from "./components/Documentation";
-import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/themes/rhea/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
@@ -97,88 +97,37 @@ class App extends Component {
 
     createMenu() {
         this.menu = [
-            {label: 'Dashboard', icon: 'pi pi-fw pi-home', command: () => {window.location = '#/'}},
             {
-                label: 'Menu Modes', icon: 'pi pi-fw pi-cog',
+                label: 'Inicio', icon: 'pi pi-fw pi-home', command: () => {window.location = '#/'}
+            },
+            {
+                label: 'Operaciones', icon: 'pi pi-fw pi-globe',
                 items: [
-                    {label: 'Static Menu', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutMode: 'static'}) },
-                    {label: 'Overlay Menu', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutMode: 'overlay'}) }
+					{label: 'Nueva', icon: 'pi pi-fw pi-th-large', to: '/sample'},
+					{label: 'Mis Operaciones', icon: 'pi pi-fw pi-file', to: '/forms'}
                 ]
             },
             {
-                label: 'Menu Colors', icon: 'pi pi-fw pi-align-left',
+                label: 'Categorias', icon: 'pi pi-fw pi-globe', 
                 items: [
-                    {label: 'Dark', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutColorMode: 'dark'}) },
-                    {label: 'Light', icon: 'pi pi-fw pi-bars',  command: () => this.setState({layoutColorMode: 'light'}) }
+					{label: 'Nueva', icon: 'pi pi-fw pi-th-large', to: '/sample'},
+					{label: 'Mis Categorias', icon: 'pi pi-fw pi-file', to: '/forms'}
                 ]
             },
             {
-                label: 'Components', icon: 'pi pi-fw pi-globe', badge: '9',
+                label: 'Operaciones Fijas', icon: 'pi pi-fw pi-globe', 
                 items: [
-					{label: 'Sample Page', icon: 'pi pi-fw pi-th-large', to: '/sample'},
-					{label: 'Forms', icon: 'pi pi-fw pi-file', to: '/forms'},
-					{label: 'Data', icon: 'pi pi-fw pi-table', to: '/data'},
-					{label: 'Panels', icon: 'pi pi-fw pi-list', to: '/panels'},
-					{label: 'Overlays', icon: 'pi pi-fw pi-clone', to: '/overlays'},
-					{label: 'Menus', icon: 'pi pi-fw pi-plus', to: '/menus'},
-					{label: 'Messages', icon: 'pi pi-fw pi-spinner',to: '/messages'},
-					{label: 'Charts', icon: 'pi pi-fw pi-chart-bar', to: '/charts'},
-					{label: 'Misc', icon: 'pi pi-fw pi-upload', to: '/misc'}
+					{label: 'Nueva', icon: 'pi pi-fw pi-th-large', to: '/sample'},
+					{label: 'Mis Operaciones Fijas', icon: 'pi pi-fw pi-file', to: '/forms'}
                 ]
             },
             {
-                label: 'Template Pages', icon: 'pi pi-fw pi-file',
-                items: [
-                    {label: 'Empty Page', icon: 'pi pi-fw pi-circle-off', to: '/empty'}
-                ]
+                label: 'Resumen', icon: 'pi pi-fw pi-search'
             },
             {
-                label: 'Menu Hierarchy', icon: 'pi pi-fw pi-search',
-                items: [
-                    {
-                        label: 'Submenu 1', icon: 'pi pi-fw pi-bookmark',
-                        items: [
-                            {
-                                label: 'Submenu 1.1', icon: 'pi pi-fw pi-bookmark',
-                                items: [
-                                    {label: 'Submenu 1.1.1', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-bookmark'},
-                                ]
-                            },
-                            {
-                                label: 'Submenu 1.2', icon: 'pi pi-fw pi-bookmark',
-                                items: [
-                                    {label: 'Submenu 1.2.1', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 1.2.2', icon: 'pi pi-fw pi-bookmark'}
-                                ]
-                            },
-                        ]
-                    },
-                    {
-                        label: 'Submenu 2', icon: 'pi pi-fw pi-bookmark',
-                        items: [
-                            {
-                                label: 'Submenu 2.1', icon: 'pi pi-fw pi-bookmark',
-                                items: [
-                                    {label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 2.1.3', icon: 'pi pi-fw pi-bookmark'},
-                                ]
-                            },
-                            {
-                                label: 'Submenu 2.2', icon: 'pi pi-fw pi-bookmark',
-                                items: [
-                                    {label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-bookmark'},
-                                    {label: 'Submenu 2.2.2', icon: 'pi pi-fw pi-bookmark'}
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {label: 'Documentation', icon: 'pi pi-fw pi-question', command: () => {window.location = "#/documentation"}},
-            {label: 'View Source', icon: 'pi pi-fw pi-search', command: () => {window.location = "https://github.com/primefaces/sigma"}}
+                label: 'Configurar', icon: 'pi pi-fw pi-file',
+                
+            }
         ];
     }
 
@@ -226,12 +175,9 @@ class App extends Component {
         return (
             <div className={wrapperClass} onClick={this.onWrapperClick}>
                 <AppTopbar onToggleMenu={this.onToggleMenu}/>
-
+                
                 <div ref={(el) => this.sidebar = el} className={sidebarClassName} onClick={this.onSidebarClick}>
-                    <div className="layout-logo">
-                        <img alt="Logo" src={logo} />
-                    </div>
-                    <AppProfile />
+                    
                     <AppMenu model={this.menu} onMenuItemClick={this.onMenuItemClick} />
                 </div>
 
