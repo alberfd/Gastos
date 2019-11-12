@@ -5,11 +5,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+import java.util.Map;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ConfiguracionDTO {
+public class RowSummaryOperationsDTO {
 
-    private long codConfiguracion;
+    private long key;
+    private Map<String, Object> data;
+
+    private List<RowSummaryOperationsDTO> children;
+
 }

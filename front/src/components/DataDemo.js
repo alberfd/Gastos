@@ -271,11 +271,13 @@ export class DataDemo extends Component {
                 <div className="p-col-12">
                     <div className="card card-w-title">
                         <h1>TreeTable</h1>
-                        <TreeTable value={this.state.documents} header="Documents" selectionMode="single"
-                            selectionKeys={this.state.documentsSelection} onSelectionChange={event => this.setState({documentsSelection: event.value})}>
-                            <Column field="name" header="Name" expander></Column>
-                            <Column field="size" header="Size"></Column>
-                            <Column field="type" header="Type"></Column>
+                        <TreeTable value={this.state.documents} header="Operaciones" selectionMode="single"
+                            selectionKeys={this.state.documentsSelection} 
+                            responsive={true}
+                            onSelectionChange={event => this.setState({documentsSelection: event.value})}>
+                            <Column field="nombre" header="Categoria/Operación" expander></Column>
+                            <Column field="total" header="Total"></Column>
+                            <Column field="tipo" header="Tipo"></Column>
                         </TreeTable>
                     </div>
                 </div>

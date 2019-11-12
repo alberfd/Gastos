@@ -1,6 +1,5 @@
 package com.alberto.gastos.dtos;
 
-import com.alberto.gastos.entidades.Operacion;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,13 +11,15 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ResumenMesDTO {
+public class SummaryMonthDTO {
 
-    private List<OperacionDTO> operaciones;
+    private List<RowSummaryOperationsDTO> operaciones;
 
-    private ConfiguracionDTO configuracion;
+    private ConfigurationDTO configuracion;
 
     private float disponibleDiario;
+
+    private float totalGastos;
 
     private int saludEconomica;
 

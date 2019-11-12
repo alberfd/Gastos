@@ -15,25 +15,27 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "categorias")
-public class Categoria {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long codCategoria;
 
     private String txtNombre;
 
-    @OneToMany(mappedBy = "categoria")
+    @OneToMany(mappedBy = "category")
     @JsonIgnore
-    private List<Operacion> operacions;
+    private List<Operation> operations;
 
-    @OneToMany(mappedBy = "categoria")
+    @OneToMany(mappedBy = "category")
     @JsonIgnore
-    private List<OperacionFija> gastosFijos;
+    private List<FixedOperation> gastosFijos;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "codPadre")
-    private Categoria categoria;
+    private Category fatherCategory;
 
+    @OneToMany(mappedBy = "fatherCategory")
+    private List<Category> subCategories;
 
 
 

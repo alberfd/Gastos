@@ -9,12 +9,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CategoriaDTO {
+public class OperationTypeDTO {
 
-    private long codCategoria;
-
-    private String txtNombre;
-
-    private CategoriaDTO categoriaPadre;
+    private short code;
+    private String literal;
 
 }

@@ -9,7 +9,17 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class OperacionDTO {
+public class OperationDTO {
 
     private long codOperacion;
+
+    private String txtConcepto;
+
+    private String txtNota;
+
+    private OperationTypeDTO tipoOperacion;
+
+    private float numCantidad;
+
+    private CategoryDTO categoria;
 }

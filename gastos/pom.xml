@@ -11,8 +11,8 @@
 	<groupId>com.alberto</groupId>
 	<artifactId>gastos</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>operacions</name>
-	<description>Back para la aplicación de operacions</description>
+	<name>operations</name>
+	<description>Back para la aplicación de operations</description>
 
 	<properties>
 		<java.version>1.8</java.version>

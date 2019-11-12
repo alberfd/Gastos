@@ -7,27 +7,33 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "operacionesfijas")
-public class OperacionFija {
+@Table(name = "operaciones")
+public class Operation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long codOperacionFija;
+    private long codOperacion;
 
     private String txtConcepto;
 
     private String txtNota;
 
+    private short indTipo;
+
     private float numCantidad;
+
+    private LocalDateTime datFecha;
 
     @ManyToOne
     @JoinColumn(name = "codCategoria")
-    private Categoria categoria;
+    private Category category;
+
+
+
 }

@@ -13,15 +13,15 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "configuraciones")
-public class Configuracion {
+public class Configuration {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long codConfiguracion;
 
-    private float numCantidad;
+    private float numCantidadInicial;
 
-    private int indTipo;
+    private float numAhorroDeseado;
 
     private int numAno;
 
