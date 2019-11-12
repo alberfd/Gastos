@@ -3,7 +3,8 @@ package com.alberto.gastos.servicios;
 import com.alberto.gastos.dtos.OperationDTO;
 import com.alberto.gastos.entidades.Operation;
 import com.alberto.gastos.entidades.FixedOperation;
-import com.alberto.gastos.mappers.OperacionMapper;
+import com.alberto.gastos.mappers.OperationMapper;
+import com.alberto.gastos.mappers.OperationDTOMapper;
 import com.alberto.gastos.repositorios.OperationJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,16 +29,20 @@ public class OperationService {
         List<OperationDTO> result = new ArrayList<>();
 
         for(Operation operation: operations){
-            result.add(OperacionMapper.map(operation, true));
+            result.add(OperationMapper.map(operation, true));
         }
 
         return result;
 
     }
 
-    public OperationDTO addOperacion(OperationDTO operation){
-        return null;
-        //return operationJpaRepository.save(operation);
+    public OperationDTO addOperacion(OperationDTO operationDTO){
+
+        Operation operation = OperationDTOMapper.map(operationDTO, true);
+
+        operation = operationJpaRepository.save(operation);
+
+        return OperationMapper.map(operation, true);
     }
 
     public void deleteOperacion(long codGasto){

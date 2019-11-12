@@ -4,7 +4,7 @@ import com.alberto.gastos.dtos.OperationDTO;
 import com.alberto.gastos.entidades.Operation;
 import com.alberto.gastos.entidades.OperationType;
 
-public class OperacionMapper {
+public class OperationMapper {
 
     public static OperationDTO map(Operation operation, boolean mapRelations){
         OperationDTO result = new OperationDTO();
